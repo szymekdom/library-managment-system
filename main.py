@@ -11,12 +11,12 @@ book_id = 1
 
 while True:
 
-    print('1. Add a book\n2. Delete a book\n3. Modify a book')
+    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books')
     
     choice = int(input('Choose an option: '))
 
     if choice==1:
-            title = input("Title: ")
+            title = input("\nTitle: ")
             author = input("Author: ")
             publishing_house = input("Publishing house: ")
     
@@ -24,12 +24,14 @@ while True:
             book_id += 1
 
     if choice==2:
+        print('\n')
         for id in books:
             print(f'{id}. {books[id].title}')
 
         del books[int(input('Enter the book id to delete: '))]
 
     if choice==3:
+            print('\n')
             for i in books:
                 print(f'{i}. {books[i].title} | {books[i].author} | {books[i].publishing_house}')
     
@@ -48,4 +50,8 @@ while True:
             mod_input = input()
             if mod_input!="":
                 books[mod_choice].publishing_house = mod_input
+    if choice==4:
+        print('\n')
+        for i in books:
+            print(f'{i}. {books[i].title} | {books[i].author} | {books[i].publishing_house}')
 
