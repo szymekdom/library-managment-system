@@ -1,10 +1,14 @@
 import json
 
 class Book():
-    def __init__(self, title, author, publishing_house):
+    def __init__(self, book_id, title, author, publishing_house):
+        self.book_id = book_id
         self.title = title
         self.author = author
         self.publishing_house =  publishing_house
+
+    def show(self):
+        print(f'{self.book_id}. {self.title} | {self.author} | {self.publishing_house}')
 
 books = {}
 book_id = 1
@@ -20,7 +24,7 @@ while True:
             author = input("Author: ")
             publishing_house = input("Publishing house: ")
     
-            books[book_id] = Book(title, author, publishing_house)
+            books[book_id] = Book(book_id, title, author, publishing_house)
             book_id += 1
 
     if choice==2:
@@ -53,5 +57,5 @@ while True:
     if choice==4:
         print('\n')
         for i in books:
-            print(f'{i}. {books[i].title} | {books[i].author} | {books[i].publishing_house}')
+            books[i].show()
 
