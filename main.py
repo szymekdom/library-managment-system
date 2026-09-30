@@ -7,7 +7,7 @@ class Book():
         self.publishing_house =  publishing_house
 
 books = {}
-id = 1
+book_id = 1
 
 while True:
 
@@ -20,8 +20,8 @@ while True:
             author = input("Author: ")
             publishing_house = input("Publishing house: ")
     
-            books[id] = Book(title, author, publishing_house)
-            id += 1
+            books[book_id] = Book(title, author, publishing_house)
+            book_id += 1
 
     if choice==2:
         for id in books:
