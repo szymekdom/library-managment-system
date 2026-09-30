@@ -13,4 +13,10 @@ while True:
     print('Choose an option: ')
     choice = int(input())
 
+    if choice==1:
+            title = input("Title: ")
+            author = input("Author: ")
+            publishing_house = input("Publishing house: ")
     
+            books[title] = Book(title, author, publishing_house)
+            
