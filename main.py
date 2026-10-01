@@ -50,7 +50,7 @@ while True:
     if choice==3:
             print('\n')
             for i in library.books:
-                print(f'{i}. {library.books[i].title} | {library.ooks[i].author} | {library.books[i].publishing_house}')
+                print(f'{i}. {library.books[i].title} | {library.books[i].author} | {library.books[i].publishing_house}')
     
             mod_choice = int(input('Enter the book id to modify: '))
             print("Title: ")
