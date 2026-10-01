@@ -11,10 +11,15 @@ class Book():
     def show(self):
         print(f'{self.book_id}. {self.title} | {self.author} | {self.publishing_house}')
 
+
+
+
+
 class Library():
     def __init__(self):
         self.books = {}
         self.book_id = 1
+        
 
     def add_book(self, title, author, publishing_house):
         self.books[self.book_id] = Book(self.book_id, title, author, publishing_house)
@@ -23,11 +28,23 @@ class Library():
     def del_book(self):
         del self.books[int(input('Enter the book id to delete: '))]
 
+    def search_book(self, title):
+        c = 0
+        for book in self.books.values():
+            if title.lower() in book.title.lower():
+                book.show()
+                c+=1
+        if c == 0:
+            print("Book not found")
+
+    
+    
+
 library = Library()
 
 while True:
 
-    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books')
+    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books\n5. Search books')
     
     choice = int(input('Choose an option: '))
 
@@ -72,3 +89,9 @@ while True:
         for i in library.books:
             library.books[i].show()
 
+    if choice == 5:
+        print('\n')
+        title = input("Enter title to search: ")
+        library.search_book(title)
+        input()
+    
