@@ -12,6 +12,11 @@ class Book():
         print(f'{self.book_id}. {self.title} | {self.author} | {self.publishing_house}')
 
 
+class User():
+    def __init__(self, user_id, name):
+        self.user_id = user_id
+        self.name = name
+        self.borrowed_books = []
 
 
 
@@ -19,7 +24,8 @@ class Library():
     def __init__(self):
         self.books = {}
         self.book_id = 1
-        
+        self.users = {}
+        self.user_id = 1
 
     def add_book(self, title, author, publishing_house):
         self.books[self.book_id] = Book(self.book_id, title, author, publishing_house)
@@ -37,14 +43,16 @@ class Library():
         if c == 0:
             print("Book not found")
 
-    
+    def add_user(self, name):
+        self.users[self.user_id] = User(self.user_id, name)
+        self.user_id += 1
     
 
 library = Library()
 
 while True:
 
-    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books\n5. Search books')
+    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books\n5. Search books\n6. Add user')
     
     choice = int(input('Choose an option: '))
 
@@ -94,4 +102,8 @@ while True:
         title = input("Enter title to search: ")
         library.search_book(title)
         input()
-    
+    if choice == 6:
+        print('\n')
+        name = input("Enter the user: ")
+        library.add_user(name)
+        
