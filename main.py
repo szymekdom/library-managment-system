@@ -18,6 +18,9 @@ class User():
         self.name = name
         self.borrowed_books = []
 
+    def show(self):
+        print(f'{self.user_id}. {self.name}')
+
 
 
 class Library():
