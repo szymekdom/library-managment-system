@@ -54,8 +54,15 @@ class Library():
     def delete_user(self):
         del self.users[int(input('Enter the user id to delete: '))]
 
-    
-    
+    def borrow_book(self):
+        borrowed_book = int(input("Select book_id to borrow: "))
+        borrow_user = int(input("Select user_id: "))
+        if self.books[borrowed_book].available is False:
+            print("Book not available")
+        else:
+            self.users[borrow_user].borrowed_books.append(borrowed_book)
+            self.books[borrowed_book].available = False
+
 
 library = Library()
 
