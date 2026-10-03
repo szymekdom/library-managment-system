@@ -49,6 +49,9 @@ class Library():
     def add_user(self, name):
         self.users[self.user_id] = User(self.user_id, name)
         self.user_id += 1
+
+    def delete_user(self):
+        del self.users[int(input('Enter the user id to delete: '))]
     
 
 library = Library()
