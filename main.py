@@ -58,7 +58,7 @@ library = Library()
 
 while True:
 
-    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books\n5. Search books\n6. Add user')
+    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books\n5. Search books\n6. Add user\n7. Delete user')
     
     choice = int(input('Choose an option: '))
 
@@ -73,8 +73,8 @@ while True:
 
     if choice==2:
         print('\n')
-        for id in library.books:
-            print(f'{id}. {library.books[id].title}')
+        for book_id in library.books:
+            print(f'{book_id}. {library.books[book_id].title}')
 
         library.del_book()
 
@@ -113,3 +113,8 @@ while True:
         name = input("Enter the user: ")
         library.add_user(name)
         
+    if choice == 7:
+        print('\n')
+        for user_id in library.users:
+                print(f'{user_id}. {library.users[user_id].name}')
+        library.delete_user()
