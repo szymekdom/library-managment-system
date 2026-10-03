@@ -6,6 +6,7 @@ class Book():
         self.title = title
         self.author = author
         self.publishing_house =  publishing_house
+        self.available = True
 
 
     def show(self):
@@ -52,13 +53,15 @@ class Library():
 
     def delete_user(self):
         del self.users[int(input('Enter the user id to delete: '))]
+
+    
     
 
 library = Library()
 
 while True:
 
-    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books\n5. Search books\n6. Add user\n7. Delete user')
+    print('\n1. Add a book\n2. Delete a book\n3. Modify a book\n4. Show books\n5. Search books\n6. Add user\n7. Delete user\n8. Show users')
     
     choice = int(input('Choose an option: '))
 
@@ -118,3 +121,9 @@ while True:
         for user_id in library.users:
                 print(f'{user_id}. {library.users[user_id].name}')
         library.delete_user()
+
+    if choice == 8:
+        print('\n')
+        for i in library.users:
+            library.users[i].show()
+        input()
